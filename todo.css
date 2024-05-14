@@ -1,0 +1,251 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-color:#363062;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    min-height: 40vh;
+    padding: 40px;
+    border-radius: 10px;
+    transition: all 2s;
+    position: relative;
+}
+
+
+
+.container .today{
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 900;
+    /* color: rgb(244, 84, 4); */
+    color: #F99417;
+    background-color: transparent;
+    font-style: italic;
+    text-shadow: 2px 2px 2px #fff;
+    font-size: 2rem;
+}
+
+.container .box {
+    background-color: #F5E8C7;
+    padding: 5px;
+    padding-right: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+input:focus  .box{
+    /* box-shadow: 0px 0px 5px 2px rgb(244 84 4 / 60%); */
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.box input {
+    padding: 5px;
+    /* margin-right: 10px; */
+    border-style: none;
+    outline-style: none;
+    width: 88%;
+    border-radius: 5px;
+    /* border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+
+}
+
+.box .plusBtn {
+
+font-size: 1rem;
+color: #F5E8C7;
+float: right;
+cursor: pointer;
+border-style: none;
+border-radius: 5px;
+padding: 4px 7px 3px;
+background-color: #363062;
+text-align: center;
+}
+
+.box .plusBtn:hover {
+    /* background-color: #4D4C7D; */
+    transform: scale(1.1);
+    transition: all 0.1s;
+}
+
+.task-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    color: #363062;
+    transition: all 0.5s;
+    animation: addflip 0.8s;
+    
+}
+
+.task-box:last-of-type {
+    margin-bottom: 50px;
+}
+
+@keyframes addflip {
+    from {
+
+        transform: rotatex(90deg);
+
+    }
+
+    to {
+        transform: rotatex(0deg);
+    }
+}
+
+.task-box:hover .del{
+    opacity: 1;
+}
+
+.del {
+    position: absolute;
+    right: 6px;
+    background-color: #EB1D36;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+        transition: all 0.6s;
+}
+
+
+.finished {
+text-decoration: line-through;
+animation-name: flip;
+animation-duration: 1s;
+transition: all 1s;
+/* background-color: rgb(184, 192, 245); */
+background: #F5E8C7;
+color:#363062;
+}
+
+.finished .del {
+    display: none;
+}
+
+.alert{
+    display: block;
+    color: #EB1D36;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-shadow: 0px 0px 1px #F5F5F5;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 10px;
+    animation: alertanime 1.2s infinite alternate ;
+    transition: all 1s;
+
+}
+
+@keyframes alertanime{
+
+    from{
+        transform:  scale(1.2);
+    }to {
+        transform: scale(0.8) ;
+    }
+
+}
+
+input[type="checkbox" i] {
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 13px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+@keyframes flip {
+    from{
+
+        transform: rotatex(90deg);
+
+    }to {
+        transform: rotatex(0deg);
+    }
+}
+
+
+.task-box.rem{
+    animation: delanime 1.1s alternate;
+    transition: transform 1s linear;
+    background-color: #F5F5F5;
+    animation-timing-function: ease-in;
+}
+
+@keyframes delanime {
+
+    from{
+transform: translateX(40px);
+    }
+    to {
+transform: translateX(-100%);
+    }
+
+}
+
+
+
+.task-count {
+    color: #363062;
+    background-color: #F99417;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto 15px;
+    padding: 5px 10px;
+    width: fit-content;
+    font-weight: 700;
+    animation: countanime 2s;
+    transition: all 2s;
+}
+
+@keyframes countanime {
+    from
+    {
+        transform: rotatey(90deg);
+    }to 
+    {
+        transform: rotatey(0deg);
+    }
+}
+
+
+.clr {
+    cursor: pointer;
+    background-color: #EB1D36;
+    color: #fff;
+    padding: 10px 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 76px);
+}

@@ -213,35 +213,6 @@ function loadTaskCountFromLS() {
   taskCount = parseInt(localStorage.getItem("taskCount")) || 0;
 }
 
-// // save task box from local storage
-// function saveTasksToLS(){
-//   // add tasks to array on LS
-//   items.push(input.value)
-
-//   localStorage.setItem('taskItem', JSON.stringify(items))
-// }
-
-// // load Task boxs from local storage
-// function loadTasks(){
-
-//   // Clear the tasksList before loading tasks to avoid duplicates
-//   tasksList.innerHTML = '';
-
-//   // Check if there is data saved in local storage
-//   if (localStorage.getItem('taskItem')) {
-//     items = JSON.parse(localStorage.getItem('taskItem')) || []; // Use a consistent key
-//     items.forEach(function (item) {
-//       // Check for empty strings before creating tasks
-//       if (item.trim() !== '') {
-//         createTask(item);
-//       }
-//     });
-
-//   } else {
-//     // Handle the case where no data is saved in local storage
-//     console.log('No data found in local storage');
-//   }
-// }
 
 function saveTasksToLS() {
   localStorage.setItem("tasksList", tasksList.innerHTML);
